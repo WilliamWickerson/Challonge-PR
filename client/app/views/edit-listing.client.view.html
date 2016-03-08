@@ -1,0 +1,34 @@
+<!-- Fill in this file to create a UI view for editing listing entries. -->
+<div class="row" ng-controller="ListingsController" ng-init="findOne()">
+  <div class="col-md-offset-1 col-md-10 formWrapper">
+    <h3>Edit Listing</h3>
+    <form name="listingForm" class="form-horizontal" ng-submit="update(listingForm.$valid)">
+      <fieldset>
+	<div class="form-group" show-errors>
+	  <label for="editListing.name">Name (Old: {{listing.name}})</label>
+	  <input name="editListing.name" type="text" ng-model="editListing.name" id="editListing.name" class="form-control" required>
+	  <div ng-messages="listingForm.editListing.name.$error" role="alert">
+	    <p class="help-block error-text" ng-message="required">Listing name is required</p>
+          </div>
+        </div>
+	<div class="form-group" show-errors>
+	  <label for="editListing.code">Code (Old: {{listing.code}})</label>
+	  <input name="editListing.code" type="text" ng-model="editListing.code" id="editListing.code" class="form-control" required>
+	  <div ng-messages="listingForm.editListing.code.$error" role="alert">
+	    <p class="help-block error-text" ng-message="required">Listing code is required</p>
+          </div>
+        </div>
+	<div class="form-group" show-errors>
+	  <label for="editListing.address">Address (Old: {{listing.address}})</label>
+	  <input name="editListing.address" type="text" ng-model="editListing.address" id="editListing.address" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+	</div>
+	<div ng-show="error" class="text-danger">
+	  <strong ng-bind="error"></strong>
+	</div>
+      </fieldset>
+    </form>
+  </div>
+</div>
